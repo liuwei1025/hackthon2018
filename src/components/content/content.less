@@ -1,0 +1,40 @@
+.hack-content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    height: 100%;
+    background-color: #f2f2f2;
+    padding: 0 10px;
+    overflow: hidden;
+    color: #333333;
+    font-family: "PingFangSC-Regular", "PingFang SC";
+    .hack-content-header {
+        flex: 1;
+        display: flex;
+        min-width: 500px;
+        margin-top: 20px;
+        justify-content: space-between;
+    }
+    .hack-content-commodity {
+        flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        overflow: auto;
+        min-width: 100%;
+        background-color: #f2f2f2;
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            li {
+                background-color: #fff;
+                width: 286px;
+                margin: 5px 3px;
+                .hack-commodity-details {
+                    min-width: 269px;
+                }
+            }
+        }
+    }
+}

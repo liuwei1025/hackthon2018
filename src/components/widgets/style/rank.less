@@ -1,0 +1,40 @@
+.hack-rank {
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    .hack-rank-content {
+        flex: 1;
+        margin-bottom: 10px;
+        margin-right: 2px;
+        overflow: auto;
+        li {
+            height: 30px;
+            line-height: 30px;
+            font-size: 14px;
+            display: flex;
+            span {
+                display: inline-block;
+            }
+            .hack-rank-index {
+                width: 30px;
+            }
+            .hack-rank-name {
+                width: 60px;
+                word-wrap: break-word;
+            }
+            .hack-rank-bar {
+                flex: 1;
+                .bar {
+                    margin-top: 10px;
+                    height: 10px;
+                    border-radius: 10px;
+                    background-color: #3ec7f5;
+                }
+            }
+            .hack-rank-value{
+                width: 30px;
+                word-wrap: break-word;
+            }
+        }
+    }
+}

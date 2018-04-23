@@ -1,0 +1,109 @@
+@shadow-color: #d3d3d3;
+@shadow: 1px 1px 1px 1px @shadow-color;
+
+.hack-commodity {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    max-width: 20%;
+    box-shadow: -1px 1px 1px 1px @shadow-color;
+    h1 {
+        min-width: 99%;
+        height: 54px;
+        line-height: 54px;
+        text-align: center;
+        border-bottom: 1px solid #cccccc;
+    }
+    .hack-commodity-list {
+        flex: 1;
+        padding: 3px 1px;
+        margin: 2px;
+        li {
+            height: 251px;
+            padding: 3px;
+            border-radius: 5px;
+            box-shadow: @shadow;
+            position: relative;
+            min-height: 333px;
+            img {
+                width: 80%;
+                height: 160px;
+                margin-left: 10%;
+            }
+            .hack-commodity-details {
+                position: absolute;
+                bottom: 5px;
+                margin: 0 10px;
+                p {
+                    font-size: 12px;
+                }
+                .hack-commodity-price {
+                    margin-top: 3px;
+                    input {
+                        box-sizing: border-box;
+                        font-size: 14px;
+                        height: 21px;
+                        border-radius: 4px;
+                        border: 1px solid #c8cccf;
+                        color: #6a6f77;
+                        -web-kit-appearance: none;
+                        -moz-appearance: none;
+                        outline: 0;
+                        padding: 0 1px;
+                        text-decoration: none;
+                        width: 100px;
+                    }
+                    .price {
+                        color: red;
+                        font-weight: bold;
+                        &::before {
+                            content: "￥";
+                        }
+                    }
+                }
+                .hack-commodity-commission {
+                    margin-top: 10px;
+                    font-size: 13px;
+                    color: #b7b7b7;
+                    .commission,
+                    .money {
+                        float: right;
+                        .value {
+                            color: #595959;
+                            &::before {
+                                content: "￥";
+                            }
+                        }
+                    }
+                    .month {
+                        float: left;
+                    }
+                    .commissionRatio {
+                        float: left;
+                        color: #fe7331;
+                        font-weight: 700;
+                    }
+                    .name {
+                        &::after {
+                            content: ":";
+                        }
+                    }
+                    .value {
+                        margin-left: 5px;
+                    }
+                }
+                a {
+                    margin-top: 10px;
+                    color: #8f8f8f;
+                    height: 25px;
+                    line-height: 25px;
+                    display: inline-block;
+                    width: 100%;
+                    text-align: center;
+                    border-top: 1px solid #cccccc;
+                }
+            }
+        }
+    }
+}
