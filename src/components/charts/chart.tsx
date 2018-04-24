@@ -46,7 +46,7 @@ export default class Chart<T extends ChartProps> extends Base<T,ChartState>{
         const {options} = this.props;
         if(!this.chart){
             this.chart = echarts.init(document.getElementById(this.state.id),"light");
-            this.chart.setOption(options)
         }
+        options && this.chart.setOption(options)
     }
 }
