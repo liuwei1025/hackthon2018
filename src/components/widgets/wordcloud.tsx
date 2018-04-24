@@ -1,40 +1,39 @@
 import Base from "../base/base";
 import Chart from "../charts/chart";
 import Box from "../widgets/box";
-import Rank from "../widgets/rank"
+import Rank from "../widgets/rank";
 import "echarts-wordcloud";
 
+/**
+ * 怎样注释属性
+ * @param {number} count 词云显示的数量
+ */
 interface WordProps {
-    title: string;
     dataSource: {};
     count?: number;
-    style?: React.CSSProperties;
-    chartStyle?:React.CSSProperties;
+    // Chartd的样式配置
+    chartStyle?: React.CSSProperties;
 }
 interface WordState {
     options: any;
-    a:number;
 }
 
 export default class WordCloud extends Base<WordProps, WordState> {
     constructor(props: WordProps) {
         super(props);
-        // this.state = {
-        //     options: getWordOptions(props),
-        //     a:2
-        // };
+        this.state = {
+            options: getWordOptions(props)
+        };
     }
     componentDidMount() {}
     render() {
-        const { title, style = {},dataSource, chartStyle } = this.props;
-        const {options} = this.state;
+        const { dataSource, chartStyle } = this.props;
+        const { options } = this.state;
         return (
-            <Box size="middle" title={title} style={style}>
-                <div className="hack-content-wrapper">
-                    <Chart options={options} style={{flex:3,...chartStyle}}/>
-                    <Rank dataSource={dataSource} showIndex={true} count={10}/>
-                </div>
-            </Box>
+            <div className="hack-content-wrapper">
+                <Chart options={options} style={{ flex: 3, ...chartStyle }} />
+                <Rank dataSource={dataSource} showIndex={true} count={10} />
+            </div>
         );
     }
 }
@@ -57,7 +56,7 @@ function getWordOptions(obj: WordProps) {
         },
         series: [
             {
-                name: obj.title,
+                // name: obj.title,
                 type: "wordCloud",
                 size: ["80%", "80%"],
                 textRotation: [0, 45, 90, -45],
@@ -66,7 +65,7 @@ function getWordOptions(obj: WordProps) {
                     enable: true,
                     minSize: 14
                 },
-                width:"90%",
+                width: "90%",
                 data
             }
         ]
@@ -86,8 +85,8 @@ function createRandomItemStyle() {
                 ")"
         },
         emphasis: {
-                    shadowBlur: 10,
-                    shadowColor: '#ccc'
-                }
+            shadowBlur: 10,
+            shadowColor: "#ccc"
+        }
     };
 }

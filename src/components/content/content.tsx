@@ -1,4 +1,4 @@
-import Base, { OrEmpty,dataset } from "../base/base";
+import Base, { OrEmpty, dataset } from "../base/base";
 import Chart from "../charts/chart";
 import Map from "../widgets/map";
 import Box from "../widgets/box";
@@ -10,8 +10,6 @@ import "./content.less";
 
 const mockData = require("../../mock/ProfileMockData.json");
 var RecommendMockData = require("../../mock/RecommendMockData.json");
-
-
 
 interface ContentProps {}
 interface DataSource {
@@ -77,8 +75,10 @@ export default class Content extends Base<ContentProps, ContentState> {
         }, 1000);
     }
     render() {
-        
-        const { dataSource: data,dataSource:{level,valueGroup,saleClient,pricePrefer} } = this.state;
+        const {
+            dataSource: data,
+            dataSource: { level, valueGroup, saleClient, pricePrefer }
+        } = this.state;
         return (
             <div className="hack-content">
                 <Summary
@@ -97,26 +97,28 @@ export default class Content extends Base<ContentProps, ContentState> {
                     {data.province && <Map dataSource={data.province} />}
                 </Box>
                 <Box
-                    size="middle"
                     title="用户群体属性 - 年龄分布"
                     style={{ marginRight: 20 }}
                 >
-                    {data.age && (<UserAge dataSource={data.age} />)}
+                    {data.age && <UserAge dataSource={data.age} />}
                 </Box>
-                <Box size="middle" title="用户群体属性 - 婚姻状况">
-                    {data.marriage && (<UserGender dataSource={data.marriage} />)}
+                <Box title="用户群体属性 - 婚姻状况">
+                    {data.marriage && <UserGender dataSource={data.marriage} />}
                 </Box>
-                <WordCloud
-                    title="用户品牌偏好"
-                    dataSource={data.brandFavor}
-                    style={{ marginRight: 20 }}
-                />
-                <WordCloud
-                    title="用户类目偏好"
-                    count={50}
-                    chartStyle={{ flex: 2 }}
-                    dataSource={data.actionGroupCate}
-                />
+                <Box title="用户品牌偏好" style={{ marginRight: 20 }}>
+                    {data.brandFavor && (
+                        <WordCloud dataSource={data.brandFavor} />
+                    )}
+                </Box>
+                <Box title="用户类目偏好">
+                    {data.actionGroupCate && (
+                        <WordCloud
+                            count={50}
+                            chartStyle={{ flex: 2 }}
+                            dataSource={data.actionGroupCate}
+                        />
+                    )}
+                </Box>
                 <Box size="large" title="站长选品推荐">
                     <div className="hack-commodity hack-content-commodity">
                         <CommodityList
